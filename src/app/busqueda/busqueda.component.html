@@ -1,0 +1,86 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Búsqueda Datafill</h4>
+                        <p class="card-category"> Aquí hay un listado del Datafill</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Búsqueda rápida" class="form-control" (keyup)="busquedaRapida($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Tipo
+                                    </th>
+                                    <th>
+                                        Servicio
+                                    </th>
+
+                                    <th>
+                                        IDU 1
+                                    </th>
+                                    <th>
+                                        PORTS 1
+                                    </th>
+                                    <th>
+                                        IDU 2
+                                    </th>
+                                    <th>
+                                        PORTS 2
+                                    </th>
+
+                                    <th>
+                                        IP MW Gestion / Port
+                                    </th>
+                                    <th>
+                                        IP Gateway / Mask
+                                    </th>
+                                    <th>
+                                        PE RAN
+                                    </th>
+                                    <th>
+                                        PE RAN PORT
+                                    </th>
+                                    <th>
+                                        NOMBRE DEL SITE
+                                    </th>
+                                    <th>
+                                        NOMBRE DEL PE ( agregador )
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let servicio of serviciosFiltrados">
+                                        <td>{{servicio.tipo_servicio.nombre}}</td>
+                                        <td>{{servicio.nombre}}</td>
+                                        <td>{{ ( servicio.datafill[0] )? servicio.datafill[0].idu.nombre : "" }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{{servicio.ip_mw_gestion_port}}</td>
+                                        <td>{{servicio.ip_gateway_mask}}</td>
+                                        <td>{{servicio.pe_ran}}</td>
+                                        <td>{{servicio.pe_ran_port}}</td>
+                                        <td>{{servicio.sitio.nombre}}</td>
+                                        <td>{{servicio.nombre_agregador}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
