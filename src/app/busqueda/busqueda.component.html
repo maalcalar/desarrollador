@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Búsqueda Datafill</h4>
-                        <p class="card-category"> Aquí hay un listado del Datafill</p>
+                        <p class="card-category">Aquí hay un listado del Datafill</p>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -60,7 +60,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let servicio of serviciosFiltrados">
+                                    <tr *ngFor="let servicio of serviciosFiltrados.servicios">
                                         <td>{{servicio.tipo_servicio.nombre}}</td>
                                         <td>{{servicio.nombre}}</td>
                                         <td>{{ ( servicio.datafill[0] )? servicio.datafill[0].idu.nombre : "" }}</td>
@@ -71,8 +71,8 @@
                                         <td>{{servicio.ip_gateway_mask}}</td>
                                         <td>{{servicio.pe_ran}}</td>
                                         <td>{{servicio.pe_ran_port}}</td>
-                                        <td>{{servicio.sitio.nombre}}</td>
-                                        <td>{{servicio.nombre_agregador}}</td>
+                                        <td>Nombre del sitio</td>
+                                        <td>{{ ( servicio.datafill[0] )? servicio.datafill[0].agregador.nombre : "" }}</td>
                                     </tr>
                                 </tbody>
                             </table>

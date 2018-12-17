@@ -1,0 +1,57 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Servicios</h4>
+                        <p class="card-category">Aquí hay un listado del Datafill</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Búsqueda rápida" class="form-control" (keyup)="busquedaRapida($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Servicios</th>
+                                        <th>Ver</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="font-size:8.75pt">
+                                    <tr *ngFor="let servicio of serviciosFiltrados.servicios">
+                                        <td>{{servicio.nombre}}</td>
+                                        <td class="text-center">
+                                            <button mat-raised-button class="btn btn-info btn-sm" (click)="network.dibujar(servicio)">
+                                                <i class="fa fa-caret-right"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Búsqueda Datafill</h4>
+                        <p class="card-category">Aquí hay un listado del Datafill</p>
+                    </div>
+                    <div class="card-body">
+                        <div id="topologia"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
