@@ -4,32 +4,23 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Servicios</h4>
-                        <p class="card-category">Aquí hay un listado del Datafill</p>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" value="" placeholder="Búsqueda rápida" class="form-control" (keyup)="busquedaRapida($event)" />
-                                </div>
-                            </div>
-                        </div>
+                        <h4 class="card-title ">Agregadores</h4>
+                        <p class="card-category">Aquí hay un listado de los agregadores que conforman el Datafill</p>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Servicios</th>
+                                        <th>Agregador</th>
                                         <th>Ver</th>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size:8.75pt">
-                                    <tr *ngFor="let servicio of serviciosFiltrados.servicios">
-                                        <td>{{servicio.nombre}}</td>
+                                    <tr *ngFor="let agregador of agregadores">
+                                        <td>{{agregador.nombre}}</td>
                                         <td class="text-center">
-                                            <button mat-raised-button class="btn btn-info btn-sm" (click)="network.dibujar(servicio)">
+                                            <button mat-raised-button class="btn btn-info btn-sm" (click)="network.dibujar(agregador)">
                                                 <i class="fa fa-caret-right"></i>
                                             </button>
                                         </td>
@@ -43,11 +34,21 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Búsqueda Datafill</h4>
-                        <p class="card-category">Aquí hay un listado del Datafill</p>
+                        <h4 class="card-title ">Datafill</h4>
+                        <p class="card-category">Se grafica el Datafill del agregador elegido</p>
                     </div>
                     <div class="card-body">
-                        <div id="topologia"></div>
+                        Elija la dirección del gráfico: 
+                        <button mat-raised-button class="btn btn-info btn-sm" (click)="network.cambiarDireccion('UD')">
+                            <i class="fa fa-sitemap"></i>
+                        </button>
+                        <button mat-raised-button class="btn btn-info btn-sm" (click)="network.cambiarDireccion('LR')">
+                            <i class="fa fa-sitemap fa-rotate-270"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="topologia" style="height: 480px;"></div>
+                        <!--<div id="cargando">Cargando...</div>-->
                     </div>
                 </div>
             </div>

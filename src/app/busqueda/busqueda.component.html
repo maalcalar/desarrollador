@@ -18,44 +18,54 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
+                            <table class="table" style="font-size:8.75pt;">
+                                <thead class="text-primary">
+                                    <th style="font-size:9.25pt;">
                                         Tipo
                                     </th>
-                                    <th>
+                                    <th style="font-size:9.25pt;">
                                         Servicio
                                     </th>
 
-                                    <th>
-                                        IDU 1
+                                    <th style="font-size:9.25pt;">
+                                        <button mat-raised-button class="btn btn-primary btn-sm" (click)="serviciosFiltrados.moverSaltosIzq()">
+                                                <i class="fa fa-caret-left"></i>
+                                        </button>
                                     </th>
-                                    <th>
-                                        PORTS 1
+                                    <th style="font-size:9.25pt;">
+                                        IDU {{serviciosFiltrados.saltoIzq}}
                                     </th>
-                                    <th>
-                                        IDU 2
+                                    <th style="font-size:9.25pt;">
+                                        PORTS {{serviciosFiltrados.saltoIzq}}
                                     </th>
-                                    <th>
-                                        PORTS 2
+                                    <th style="font-size:9.25pt;">
+                                        IDU {{serviciosFiltrados.saltoIzq + 1}}
+                                    </th>
+                                    <th style="font-size:9.25pt;">
+                                        PORTS {{serviciosFiltrados.saltoIzq + 1}}
+                                    </th>
+                                    <th style="font-size:9.25pt;">
+                                        <button mat-raised-button class="btn btn-primary btn-sm" (click)="serviciosFiltrados.moverSaltosDer()">
+                                                <i class="fa fa-caret-right"></i>
+                                        </button>
                                     </th>
 
-                                    <th>
+                                    <th style="font-size:9.25pt;">
                                         IP MW Gestion / Port
                                     </th>
-                                    <th>
+                                    <th style="font-size:9.25pt;">
                                         IP Gateway / Mask
                                     </th>
-                                    <th>
+                                    <th style="font-size:9.25pt;">
                                         PE RAN
                                     </th>
-                                    <th>
+                                    <th style="font-size:9.25pt;">
                                         PE RAN PORT
                                     </th>
-                                    <th>
+                                    <th style="font-size:9.25pt;">
                                         NOMBRE DEL SITE
                                     </th>
-                                    <th>
+                                    <th style="font-size:9.25pt;">
                                         NOMBRE DEL PE ( agregador )
                                     </th>
                                 </thead>
@@ -63,15 +73,17 @@
                                     <tr *ngFor="let servicio of serviciosFiltrados.servicios">
                                         <td>{{servicio.tipo_servicio.nombre}}</td>
                                         <td>{{servicio.nombre}}</td>
-                                        <td>{{ ( servicio.datafill[0] )? servicio.datafill[0].idu.nombre : "" }}</td>
                                         <td></td>
+                                        <td>{{ ( servicio.datafill[(serviciosFiltrados.saltoIzq - 1)] )? servicio.datafill[(serviciosFiltrados.saltoIzq - 1)].idu.nombre : "" }}</td>
+                                        <td>{{ ( servicio.datafill[(serviciosFiltrados.saltoIzq - 1)] )? servicio.datafill[(serviciosFiltrados.saltoIzq - 1)].idu_port_in + ' / ' + servicio.datafill[(serviciosFiltrados.saltoIzq - 1)].idu_port_out : "" }}</td>
+                                        <td>{{ ( servicio.datafill[(serviciosFiltrados.saltoIzq)] )? servicio.datafill[(serviciosFiltrados.saltoIzq)].idu.nombre : "" }}</td>
+                                        <td>{{ ( servicio.datafill[(serviciosFiltrados.saltoIzq)] )? servicio.datafill[(serviciosFiltrados.saltoIzq)].idu_port_in + ' / ' + servicio.datafill[(serviciosFiltrados.saltoIzq)].idu_port_out : "" }}</td>
                                         <td></td>
-                                        <td></td>
-                                        <td>{{servicio.ip_mw_gestion_port}}</td>
-                                        <td>{{servicio.ip_gateway_mask}}</td>
-                                        <td>{{servicio.pe_ran}}</td>
-                                        <td>{{servicio.pe_ran_port}}</td>
-                                        <td>Nombre del sitio</td>
+                                        <td>{{servicio.datafill[0].ip_mw_gestion_port}}</td>
+                                        <td>{{servicio.datafill[0].ip_gateway_mask}}</td>
+                                        <td>{{servicio.datafill[0].pe_ran}}</td>
+                                        <td>{{servicio.datafill[0].pe_ran_port}}</td>
+                                        <td>{{servicio.datafill[0].sitio.nombre}}</td>
                                         <td>{{ ( servicio.datafill[0] )? servicio.datafill[0].agregador.nombre : "" }}</td>
                                     </tr>
                                 </tbody>
@@ -83,4 +95,3 @@
         </div>
     </div>
   </div>
-  

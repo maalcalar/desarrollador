@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS tb_datafill (
     ip_mw_gestion_port	TINYTEXT COMMENT "Usado en el primer salto",
     ip_gateway_mask	    TINYTEXT COMMENT "Usado en el primer salto",	
     agregador	        INT(10) UNSIGNED COMMENT "Relacionado a tb_sitio por id",
+    sitio               INT(10) UNSIGNED COMMENT "Relacionado a tb_sitio por id",
     activo	            TINYINT(1) UNSIGNED DEFAULT 1,
     created_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP	
 );
